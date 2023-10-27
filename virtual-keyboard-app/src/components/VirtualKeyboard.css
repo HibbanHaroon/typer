@@ -1,0 +1,10 @@
+/* VirtualKeyboard.css */
+.virtual-keyboard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border: 2px solid red;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  

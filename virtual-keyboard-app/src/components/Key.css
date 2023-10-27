@@ -1,0 +1,9 @@
+/* Key.css */
+.key {
+    border: 1px solid #ccc;
+    margin: 5px;
+    padding: 5px;
+    cursor: pointer;
+    vertical-align: top;
+  }
+  

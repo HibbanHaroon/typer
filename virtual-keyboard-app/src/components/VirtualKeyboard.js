@@ -53,10 +53,10 @@ const VirtualKeyboard = () => {
       {/* First Row */}
       <div className="row">
         <Key
-          texts={["ESC", ""]}
+          texts={["Esc", ""]}
           width={65}
           height={firstRowHeight}
-          color={pressedKeys.has("Escape") ? "blue" : "#ccc"}
+          isPressed={pressedKeys.has("Escape")}
         />
         {Array.from({ length: 12 }, (_, index) => (
           <Key
@@ -64,26 +64,26 @@ const VirtualKeyboard = () => {
             texts={[`F${index + 1}`, ""]}
             width={55}
             height={firstRowHeight}
-            color={pressedKeys.has(`F${index + 1}`) ? "blue" : "#ccc"}
+            isPressed={pressedKeys.has(`F${index + 1}`)}
           />
         ))}
         <Key
           texts={["PrtScr", ""]}
           width={60}
           height={firstRowHeight}
-          color={pressedKeys.has("PrintScreen") ? "blue" : "#ccc"}
+          isPressed={pressedKeys.has("PrintScreen")}
         />
         <Key
           texts={["Insert", ""]}
           width={60}
           height={firstRowHeight}
-          color={pressedKeys.has("Insert") ? "blue" : "#ccc"}
+          isPressed={pressedKeys.has("Insert")}
         />
         <Key
           texts={["Del", ""]}
           width={60}
           height={firstRowHeight}
-          color={pressedKeys.has("Delete") ? "blue" : "#ccc"}
+          isPressed={pressedKeys.has("Delete")}
         />
       </div>
 
@@ -93,7 +93,7 @@ const VirtualKeyboard = () => {
           texts={["~", "`"]}
           width={62}
           height={keyHeight}
-          color={pressedKeys.has("`") ? "blue" : "#ccc"}
+          isPressed={pressedKeys.has("`") || pressedKeys.has("~")}
         />
         {[
           ["!", "1"],
@@ -114,14 +114,14 @@ const VirtualKeyboard = () => {
             texts={texts}
             width={62}
             height={keyHeight}
-            color={pressedKeys.has(texts[1]) ? "blue" : "#ccc"}
+            isPressed={pressedKeys.has(texts[0]) || pressedKeys.has(texts[1])}
           />
         ))}
         <Key
           texts={["Backspace"]}
           width={117}
           height={keyHeight}
-          color={pressedKeys.has("Backspace") ? "blue" : "#ccc"}
+          isPressed={pressedKeys.has("Backspace")}
         />
       </div>
       
@@ -131,7 +131,7 @@ const VirtualKeyboard = () => {
           texts={["Tab", ""]}
           width={102}
           height={keyHeight}
-          color={pressedKeys.has("Tab") ? "blue" : "#ccc"}
+          isPressed={pressedKeys.has("Tab")}
         />
         {[
           ["", "Q"],
@@ -153,11 +153,10 @@ const VirtualKeyboard = () => {
             texts={texts}
             width={63}
             height={keyHeight}
-            color={
+            isPressed={
+              pressedKeys.has(texts[0]) ||
               pressedKeys.has(texts[1].toLowerCase()) ||
               pressedKeys.has(texts[1].toUpperCase())
-                ? "blue"
-                : "#ccc"
             }
           />
         ))}
@@ -169,7 +168,7 @@ const VirtualKeyboard = () => {
           texts={["Caps", ""]}
           width={118}
           height={keyHeight}
-          color={pressedKeys.has("CapsLock") ? "blue" : "#ccc"}
+          isPressed={pressedKeys.has("CapsLock")}
         />
         {[
           ["", "A"],
@@ -181,7 +180,7 @@ const VirtualKeyboard = () => {
           ["", "J"],
           ["", "K"],
           ["", "L"],
-          [";", ":"],
+          [":", ";"],
           ['"', "'"],
         ].map((texts, index) => (
           <Key
@@ -189,11 +188,10 @@ const VirtualKeyboard = () => {
             texts={texts}
             width={63}
             height={keyHeight}
-            color={
+            isPressed={
+              pressedKeys.has(texts[0]) ||
               pressedKeys.has(texts[1].toLowerCase()) ||
               pressedKeys.has(texts[1].toUpperCase())
-                ? "blue"
-                : "#ccc"
             }
           />
         ))}
@@ -201,7 +199,7 @@ const VirtualKeyboard = () => {
           texts={["Enter"]}
           width={118}
           height={keyHeight}
-          color={pressedKeys.has("Enter") ? "blue" : "#ccc"}
+          isPressed={pressedKeys.has("Enter")}
         />
       </div>
 
@@ -211,7 +209,7 @@ const VirtualKeyboard = () => {
           texts={["Shift", ""]}
           width={155}
           height={keyHeight}
-          color={pressedKeys.has("Shift") ? "blue" : "#ccc"}
+          isPressed={pressedKeys.has("Shift")}
         />
         {[
           ["", "Z"],
@@ -230,11 +228,10 @@ const VirtualKeyboard = () => {
             texts={texts}
             width={63}
             height={keyHeight}
-            color={
+            isPressed={
+              pressedKeys.has(texts[0]) ||
               pressedKeys.has(texts[1].toLowerCase()) ||
               pressedKeys.has(texts[1].toUpperCase())
-                ? "blue"
-                : "#ccc"
             }
           />
         ))}
@@ -243,7 +240,7 @@ const VirtualKeyboard = () => {
           texts={["Shift", ""]}
           width={155}
           height={keyHeight}
-          color={pressedKeys.has("Shift") ? "blue" : "#ccc"}
+          isPressed={pressedKeys.has("Shift")}
         />
       </div>
 
@@ -253,13 +250,13 @@ const VirtualKeyboard = () => {
           texts={["Ctrl", ""]}
           width={80}
           height={lastRowHeight}
-          color={pressedKeys.has("Control") ? "blue" : "#ccc"}
+          isPressed={pressedKeys.has("Control")}
         />
         <Key
           texts={["Fn", ""]}
           width={60}
           height={lastRowHeight}
-          color={pressedKeys.has("Fn") ? "blue" : "#ccc"}
+          isPressed={pressedKeys.has("Fn")}
         />
         <Key
           icon={windowsIcon}
@@ -267,31 +264,31 @@ const VirtualKeyboard = () => {
           iconHeight={24}
           width={80}
           height={lastRowHeight}
-          color={pressedKeys.has("Meta") ? "blue" : "#ccc"}
+          isPressed={pressedKeys.has("Meta")}
         />
         <Key
           texts={["Alt", ""]}
           width={60}
           height={lastRowHeight}
-          color={pressedKeys.has("Alt") ? "blue" : "#ccc"}
+          isPressed={pressedKeys.has("Alt")}
         />
         <Key
           texts={["", ""]}
           width={358}
           height={lastRowHeight}
-          color={pressedKeys.has("Space") ? "blue" : "#ccc"}
+          isPressed={pressedKeys.has("Space")}
         />
         <Key
           texts={["Alt", ""]}
           width={60}
           height={lastRowHeight}
-          color={pressedKeys.has("Alt") ? "blue" : "#ccc"}
+          isPressed={pressedKeys.has("Alt")}
         />
         <Key
           texts={["Ctrl", ""]}
           width={80}
           height={lastRowHeight}
-          color={pressedKeys.has("Control") ? "blue" : "#ccc"}
+          isPressed={pressedKeys.has("Control")}
         />
       </div>
 
@@ -304,7 +301,7 @@ const VirtualKeyboard = () => {
             iconHeight={12}
             width={60}
             height={arrowKeyHeight}
-            color={pressedKeys.has("ArrowUp") ? "blue" : "#ccc"}
+            isPressed={pressedKeys.has("ArrowUp")}
           />
         </div>
         <div className="row">
@@ -314,7 +311,7 @@ const VirtualKeyboard = () => {
             iconHeight={12}
             width={60}
             height={arrowKeyHeight}
-            color={pressedKeys.has("ArrowLeft") ? "blue" : "#ccc"}
+            isPressed={pressedKeys.has("ArrowLeft")}
           />
           <Key
             icon={arrowDownIcon}
@@ -322,7 +319,7 @@ const VirtualKeyboard = () => {
             iconHeight={12}
             width={60}
             height={arrowKeyHeight}
-            color={pressedKeys.has("ArrowDown") ? "blue" : "#ccc"}
+            isPressed={pressedKeys.has("ArrowDown")}
           />
           <Key
             icon={arrowRightIcon}
@@ -330,7 +327,7 @@ const VirtualKeyboard = () => {
             iconHeight={12}
             width={60}
             height={arrowKeyHeight}
-            color={pressedKeys.has("ArrowRight") ? "blue" : "#ccc"}
+            isPressed={pressedKeys.has("ArrowRight")}
           />
         </div>
       </div>

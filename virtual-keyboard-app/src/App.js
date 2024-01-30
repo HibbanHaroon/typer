@@ -1,41 +1,57 @@
 // App.js
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import VirtualKeyboard from "./components/VirtualKeyboard";
 import ThemeChanger from "./components/ThemeChanger";
 import ThemeContext from "./components/ThemeContext";
 import themes from "./components/themes";
 import "./App.css";
 import Textfield from "./components/Textfield";
+import MobileView from "./components/MobileView";
 
 const App = () => {
   const [currentTheme, setCurrentTheme] = useState(themes["normal"]);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   const handleThemeChange = (theme) => {
     setCurrentTheme(theme);
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth < 1100);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    handleResize();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
-    <ThemeContext.Provider value={currentTheme}>
-      <div className="app" style={{ backgroundColor: currentTheme.keyColor }}>
-        <div className="theme-container">
-          <ThemeChanger onThemeChange={handleThemeChange} />
-        </div>
-        <div className="center-container">
-          <Textfield
-            keyColor={currentTheme.keyColor}
-            textColor={currentTheme.textColor}
-          />
-          <VirtualKeyboard />
-        </div>
+    <div className="app" style={{ backgroundColor: currentTheme.keyColor }}>
+      <div className="theme-container">
+        <ThemeChanger onThemeChange={handleThemeChange} />
       </div>
-    </ThemeContext.Provider>
+      <div className="center-container">
+        <ThemeContext.Provider value={currentTheme}>
+          {isSmallScreen ? (
+            <MobileView />
+          ) : (
+            <div>
+              <Textfield
+                keyColor={currentTheme.keyColor}
+                textColor={currentTheme.textColor}
+              />
+              <VirtualKeyboard />
+            </div>
+          )}
+        </ThemeContext.Provider>
+      </div>
+    </div>
   );
 };
-
-// Things to do:
-/**
- * 1. Add a button on the top right to change themes such as black, silver, orange, pink, etc.
- * 2. Add a textfield to type in real time. Textfield should be just one line with a cool Time New Roman type font
- * 3. Make the site responsive, that is the keyboard should scale up and down.
- * **/
 
 export default App;

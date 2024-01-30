@@ -1,4 +1,3 @@
-// Key.js
 import React from "react";
 import ThemeContext from "./ThemeContext";
 import PropTypes from "prop-types";

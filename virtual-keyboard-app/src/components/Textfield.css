@@ -1,0 +1,17 @@
+input{
+    width: 100vw;
+    height: 100px;
+    box-sizing: border-box;
+    padding-right: 50%;
+    margin-bottom: 25px;
+    direction: ltr;
+
+    /* border: 1px solid; */
+    
+    text-align: right;
+    font-family: "Fraunces", serif;
+    font-size: 50px;
+    
+    border: none;
+    outline: none;
+}

@@ -1,0 +1,14 @@
+:root {
+  --keyboard-width: 1080px;
+}
+
+.virtual-keyboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: var(--keyboard-width);
+  max-width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 0 calc((100vw - var(--keyboard-width)) / 2);
+}

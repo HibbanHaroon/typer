@@ -1,15 +1,17 @@
 // VirtualKeyboard.js
 import React, { useState, useEffect } from "react";
+import ThemeContext from "./ThemeContext";
 import Key from "./Key";
 import "./VirtualKeyboard.css";
-import windowsIcon from "../assets/icons/windows.svg";
-import arrowUpIcon from "../assets/icons/arrowhead-up.svg";
-import arrowDownIcon from "../assets/icons/arrowhead-down.svg";
-import arrowLeftIcon from "../assets/icons/arrowhead-left.svg";
-import arrowRightIcon from "../assets/icons/arrowhead-right.svg";
+import Windows from "../assets/icons/Windows";
+import ArrowHeadUp from "../assets/icons/ArrowHeadUp";
+import ArrowHeadDown from "../assets/icons/ArrowHeadDown";
+import ArrowHeadLeft from "../assets/icons/ArrowHeadLeft";
+import ArrowHeadRight from "../assets/icons/ArrowHeadRight";
 
 const VirtualKeyboard = () => {
   const [pressedKeys, setPressedKeys] = useState(new Set());
+  const theme = React.useContext(ThemeContext);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -48,8 +50,13 @@ const VirtualKeyboard = () => {
   const lastRowHeight = 57;
   const arrowKeyHeight = 23;
 
+  console.log(theme);
+
   return (
-    <div className="virtual-keyboard">
+    <div
+      className="virtual-keyboard"
+      style={{ backgroundColor: theme.keyboardColor }}
+    >
       {/* First Row */}
       <div className="row">
         <Key
@@ -124,7 +131,7 @@ const VirtualKeyboard = () => {
           isPressed={pressedKeys.has("Backspace")}
         />
       </div>
-      
+
       <div className="row">
         {/* Third Row */}
         <Key
@@ -259,7 +266,7 @@ const VirtualKeyboard = () => {
           isPressed={pressedKeys.has("Fn")}
         />
         <Key
-          icon={windowsIcon}
+          icon={<Windows textColor={theme.textColor} width={24} height={24} />}
           iconWidth={24}
           iconHeight={24}
           width={80}
@@ -296,7 +303,9 @@ const VirtualKeyboard = () => {
       <div>
         <div className="row">
           <Key
-            icon={arrowUpIcon}
+            icon={
+              <ArrowHeadUp textColor={theme.textColor} width={12} height={12} />
+            }
             iconWidth={12}
             iconHeight={12}
             width={60}
@@ -306,7 +315,13 @@ const VirtualKeyboard = () => {
         </div>
         <div className="row">
           <Key
-            icon={arrowLeftIcon}
+            icon={
+              <ArrowHeadLeft
+                textColor={theme.textColor}
+                width={12}
+                height={12}
+              />
+            }
             iconWidth={12}
             iconHeight={12}
             width={60}
@@ -314,7 +329,13 @@ const VirtualKeyboard = () => {
             isPressed={pressedKeys.has("ArrowLeft")}
           />
           <Key
-            icon={arrowDownIcon}
+            icon={
+              <ArrowHeadDown
+                textColor={theme.textColor}
+                width={12}
+                height={12}
+              />
+            }
             iconWidth={12}
             iconHeight={12}
             width={60}
@@ -322,7 +343,13 @@ const VirtualKeyboard = () => {
             isPressed={pressedKeys.has("ArrowDown")}
           />
           <Key
-            icon={arrowRightIcon}
+            icon={
+              <ArrowHeadRight
+                textColor={theme.textColor}
+                width={12}
+                height={12}
+              />
+            }
             iconWidth={12}
             iconHeight={12}
             width={60}

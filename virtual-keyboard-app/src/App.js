@@ -2,8 +2,8 @@
 import React, { useState, useEffect } from "react";
 import VirtualKeyboard from "./components/VirtualKeyboard";
 import ThemeChanger from "./components/ThemeChanger";
-import ThemeContext from "./components/ThemeContext";
-import themes from "./components/themes";
+import ThemeContext from "./context/ThemeContext";
+import themes from "./data/themes";
 import "./App.css";
 import Textfield from "./components/Textfield";
 import MobileView from "./components/MobileView";

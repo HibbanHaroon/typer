@@ -1,6 +1,6 @@
 import React from "react";
-import haha from "../assets/icons/haha.png";
-import ThemeContext from "./ThemeContext";
+import haha from "../assets/images/haha.png";
+import ThemeContext from "../context/ThemeContext";
 import "./MobileView.css";
 
 const MobileView = () => {

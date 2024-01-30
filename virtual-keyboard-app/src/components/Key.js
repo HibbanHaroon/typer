@@ -1,5 +1,5 @@
 import React from "react";
-import ThemeContext from "./ThemeContext";
+import ThemeContext from "../context/ThemeContext";
 import PropTypes from "prop-types";
 import "./Key.css";
 

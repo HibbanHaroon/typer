@@ -1,6 +1,6 @@
 // VirtualKeyboard.js
 import React, { useState, useEffect } from "react";
-import ThemeContext from "./ThemeContext";
+import ThemeContext from "../context/ThemeContext";
 import Key from "./Key";
 import "./VirtualKeyboard.css";
 import Windows from "../assets/icons/Windows";

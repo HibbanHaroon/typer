@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import themes from "./themes";
+import themes from "../data/themes";
 import "./ThemeChanger.css";
 
 const ThemeChanger = ({ onThemeChange }) => {

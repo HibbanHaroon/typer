@@ -5,6 +5,7 @@ import ThemeChanger from "./components/ThemeChanger";
 import ThemeContext from "./components/ThemeContext";
 import themes from "./components/themes";
 import "./App.css";
+import Textfield from "./components/Textfield";
 
 const App = () => {
   const [currentTheme, setCurrentTheme] = useState(themes["normal"]);
@@ -15,10 +16,14 @@ const App = () => {
   return (
     <ThemeContext.Provider value={currentTheme}>
       <div className="app" style={{ backgroundColor: currentTheme.keyColor }}>
-        <div>
+        <div className="theme-container">
           <ThemeChanger onThemeChange={handleThemeChange} />
         </div>
         <div className="center-container">
+          <Textfield
+            keyColor={currentTheme.keyColor}
+            textColor={currentTheme.textColor}
+          />
           <VirtualKeyboard />
         </div>
       </div>

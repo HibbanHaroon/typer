@@ -7,13 +7,16 @@ import themes from "./data/themes";
 import "./App.css";
 import Textfield from "./components/Textfield";
 import MobileView from "./components/MobileView";
+import Socials from "./components/Socials";
 
 const App = () => {
   const [currentTheme, setCurrentTheme] = useState(themes["normal"]);
+  const [nextTheme, setNextTheme] = useState(themes["black"]);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
-  const handleThemeChange = (theme) => {
-    setCurrentTheme(theme);
+  const handleThemeChange = (themes) => {
+    setCurrentTheme(themes[0]);
+    setNextTheme(themes[1]);
   };
 
   useEffect(() => {
@@ -35,8 +38,8 @@ const App = () => {
       <div className="theme-container">
         <ThemeChanger onThemeChange={handleThemeChange} />
       </div>
-      <div className="center-container">
-        <ThemeContext.Provider value={currentTheme}>
+      <ThemeContext.Provider value={[currentTheme, nextTheme]}>
+        <div className="center-container">
           {isSmallScreen ? (
             <MobileView />
           ) : (
@@ -48,8 +51,9 @@ const App = () => {
               <VirtualKeyboard />
             </div>
           )}
-        </ThemeContext.Provider>
-      </div>
+        </div>
+        <Socials />
+      </ThemeContext.Provider>
     </div>
   );
 };

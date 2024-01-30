@@ -13,18 +13,21 @@ const Key = ({
   isPressed,
   onClick,
 }) => {
-  const theme = React.useContext(ThemeContext);
+  const themes = React.useContext(ThemeContext);
+  const currentTheme = themes[0];
 
   const keyStyle = {
     width: `${width}px`,
     height: `${height}px`,
-    backgroundColor: isPressed ? `${theme.pressedColor}` : `${theme.keyColor}`,
+    backgroundColor: isPressed
+      ? `${currentTheme.pressedColor}`
+      : `${currentTheme.keyColor}`,
     boxShadow: isPressed
-      ? `0px 0px 1px 0px ${theme.shadowColor}`
-      : `0px 0px 1px 0 ${theme.shadowColor}, 3px 3px 4px 0 ${theme.shadowColor}`,
+      ? `0px 0px 1px 0px ${currentTheme.shadowColor}`
+      : `0px 0px 1px 0 ${currentTheme.shadowColor}, 3px 3px 4px 0 ${currentTheme.shadowColor}`,
     border: "none",
     borderRadius: "3px",
-    color: theme.textColor,
+    color: currentTheme.textColor,
   };
 
   return (

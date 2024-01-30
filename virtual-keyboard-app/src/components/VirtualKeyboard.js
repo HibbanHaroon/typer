@@ -11,7 +11,8 @@ import ArrowHeadRight from "../assets/icons/ArrowHeadRight";
 
 const VirtualKeyboard = () => {
   const [pressedKeys, setPressedKeys] = useState(new Set());
-  const theme = React.useContext(ThemeContext);
+  const themes = React.useContext(ThemeContext);
+  const currentTheme = themes[0];
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -50,12 +51,12 @@ const VirtualKeyboard = () => {
   const lastRowHeight = 57;
   const arrowKeyHeight = 23;
 
-  console.log(theme);
+  console.log(currentTheme);
 
   return (
     <div
       className="virtual-keyboard"
-      style={{ backgroundColor: theme.keyboardColor }}
+      style={{ backgroundColor: currentTheme.keyboardColor }}
     >
       {/* First Row */}
       <div className="row">
@@ -266,7 +267,13 @@ const VirtualKeyboard = () => {
           isPressed={pressedKeys.has("Fn")}
         />
         <Key
-          icon={<Windows textColor={theme.textColor} width={24} height={24} />}
+          icon={
+            <Windows
+              textColor={currentTheme.textColor}
+              width={24}
+              height={24}
+            />
+          }
           iconWidth={24}
           iconHeight={24}
           width={80}
@@ -304,7 +311,11 @@ const VirtualKeyboard = () => {
         <div className="row">
           <Key
             icon={
-              <ArrowHeadUp textColor={theme.textColor} width={12} height={12} />
+              <ArrowHeadUp
+                textColor={currentTheme.textColor}
+                width={12}
+                height={12}
+              />
             }
             iconWidth={12}
             iconHeight={12}
@@ -317,7 +328,7 @@ const VirtualKeyboard = () => {
           <Key
             icon={
               <ArrowHeadLeft
-                textColor={theme.textColor}
+                textColor={currentTheme.textColor}
                 width={12}
                 height={12}
               />
@@ -331,7 +342,7 @@ const VirtualKeyboard = () => {
           <Key
             icon={
               <ArrowHeadDown
-                textColor={theme.textColor}
+                textColor={currentTheme.textColor}
                 width={12}
                 height={12}
               />
@@ -345,7 +356,7 @@ const VirtualKeyboard = () => {
           <Key
             icon={
               <ArrowHeadRight
-                textColor={theme.textColor}
+                textColor={currentTheme.textColor}
                 width={12}
                 height={12}
               />

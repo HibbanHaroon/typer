@@ -20,13 +20,15 @@ const ThemeChanger = ({ onThemeChange }) => {
     const nextNextTheme = themes[themeKeys[nextNextIndex]];
     setNextTheme(nextNextTheme);
 
-    onThemeChange(nextTheme);
+    onThemeChange([nextTheme, nextNextTheme]);
   };
 
   return (
     <div
       className="themeChanger"
-      style={{ backgroundColor: nextTheme["keyColor"] }}
+      style={{
+        backgroundColor: nextTheme["keyColor"],
+      }}
       onClick={changeTheme}
     ></div>
   );

@@ -4,9 +4,11 @@ import ThemeContext from "../context/ThemeContext";
 import "./MobileView.css";
 
 const MobileView = () => {
-  const theme = React.useContext(ThemeContext);
+  const themes = React.useContext(ThemeContext);
+  const currentTheme = themes[0];
+
   const textStyle = {
-    color: theme.textColor,
+    color: currentTheme.textColor,
   };
   return (
     <div>

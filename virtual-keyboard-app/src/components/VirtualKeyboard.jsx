@@ -10,23 +10,25 @@ import ArrowHeadLeft from "../assets/icons/ArrowHeadLeft";
 import ArrowHeadRight from "../assets/icons/ArrowHeadRight";
 import keySound from "../assets/sound/key.mp3";
 
+import { throttle } from "lodash";
+
 const VirtualKeyboard = () => {
   const [pressedKeys, setPressedKeys] = useState(new Set());
   const themes = React.useContext(ThemeContext);
   const currentTheme = themes[0];
 
-  const playKeySound = () => {
+  const ThrottledPlayKeySound = throttle(() => {
     const audio = new Audio(keySound);
     audio.play().catch((error) => {
       console.error("Error playing key sound:", error);
     });
-  };
+  }, 111);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
       const key = e.key === " " ? "Space" : e.key;
       setPressedKeys((prevKeys) => new Set([...prevKeys, key]));
-      playKeySound();
+      ThrottledPlayKeySound();
     };
 
     const handleKeyUp = (e) => {
@@ -36,6 +38,7 @@ const VirtualKeyboard = () => {
         newKeys.delete(key);
         return newKeys;
       });
+      // stopKeySound();
     };
 
     const handleVisibilityChange = () => {

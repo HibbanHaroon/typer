@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import PlayIcon from "../assets/icons/PlayIcon";
 import PauseIcon from "../assets/icons/PauseIcon";
 import ThemeContext from "../context/ThemeContext";
+import { Tooltip } from "react-tooltip";
 import "./MusicPlayer.css";
 
 const MusicPlayer = () => {
@@ -54,6 +55,7 @@ const MusicPlayer = () => {
     <div>
       <button
         className="musicPlayer"
+        data-tooltip-id="musicPlayer"
         style={{
           backgroundColor: isMusicHovered
             ? currentTheme.keyColor
@@ -81,6 +83,14 @@ const MusicPlayer = () => {
           />
         )}
       </button>
+      <Tooltip
+        id="musicPlayer"
+        content={isPaused ? "Turn On" : "Turn Off"}
+        style={{
+          backgroundColor: nextTheme.keyColor,
+          color: currentTheme.keyColor,
+        }}
+      />
     </div>
   );
 };

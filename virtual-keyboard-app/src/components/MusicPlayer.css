@@ -1,0 +1,15 @@
+.musicPlayer{
+    width: 40px;    
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0px 7px;
+
+    transition: background-color 0.3s ease;
+}

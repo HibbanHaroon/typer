@@ -8,6 +8,7 @@ import "./App.css";
 import Textfield from "./components/Textfield";
 import MobileView from "./components/MobileView";
 import Socials from "./components/Socials";
+import MusicPlayer from "./components/MusicPlayer";
 
 const App = () => {
   const [currentTheme, setCurrentTheme] = useState(themes["normal"]);
@@ -35,10 +36,15 @@ const App = () => {
 
   return (
     <div className="app" style={{ backgroundColor: currentTheme.keyColor }}>
-      <div className="theme-container">
-        <ThemeChanger onThemeChange={handleThemeChange} />
-      </div>
       <ThemeContext.Provider value={[currentTheme, nextTheme]}>
+        <div className="settings-container">
+          <div className="movie-player">
+            <MusicPlayer />
+          </div>
+          <div className="theme-container">
+            <ThemeChanger onThemeChange={handleThemeChange} />
+          </div>
+        </div>
         <div className="center-container">
           {isSmallScreen ? (
             <MobileView />

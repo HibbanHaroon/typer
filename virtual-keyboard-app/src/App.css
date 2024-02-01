@@ -23,8 +23,12 @@ body, html {
   padding: 20px;
 }
 
-.theme-container{
+.settings-container{
   position: absolute;
   top: 20px;
   right: 20px;
+
+  display: flex;
+  flex-direction: row;
 }
+

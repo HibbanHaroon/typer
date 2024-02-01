@@ -6,6 +6,7 @@ const themes = {
     pressedColor: "#c6c6d3",
     textColor: "#020202",
     shadowColor: "#AEAEC0",
+    music: "music/audio5.mp3",
   },
   //Black
   black: {
@@ -14,38 +15,43 @@ const themes = {
     pressedColor: "#a4a0ac",
     textColor: "#F0F0F0",
     shadowColor: "#353535",
+    music: "music/audio2.mp3",
   },
   //Pink
   pink: {
-    keyboardColor: "#EF3167",
+    keyboardColor: "#F197A4",
     keyColor: "#FFDADF",
-    pressedColor: "#FF779E",
+    pressedColor: "#c17983",
     textColor: "#000000",
-    shadowColor: "#FF779E",
+    shadowColor: "#c17983",
+    music: "music/audio4.mp3",
   },
-  //Blue
-  blue: {
-    keyboardColor: "#5F84A2",
-    keyColor: "#194569",
-    pressedColor: "#91AEC4",
-    textColor: "#DBECF4",
-    shadowColor: "#91AEC4",
-  },
-  //Orange
-  orange: {
-    keyboardColor: "#EA4A30",
-    keyColor: "#F5D7CB",
-    pressedColor: "#EEA78D",
+  //Green
+  green: {
+    keyboardColor: "#567C57",
+    keyColor: "#B5C8AC",
+    pressedColor: "#789679",
     textColor: "#000000",
-    shadowColor: "#EEA78D",
+    shadowColor: "#789679",
+    music: "music/audio3.mp3",
+  },
+  //Brown
+  brown: {
+    keyboardColor: "#96644D",
+    keyColor: "#DCCCB3",
+    pressedColor: "#9d7c69",
+    textColor: "#000000",
+    shadowColor: "#9d7c69",
+    music: "music/audio1.mp3",
   },
   //Lavender
   lavender: {
-    keyboardColor: "#DAC9DF",
-    keyColor: "#503459",
-    pressedColor: "#81638B",
-    textColor: "#FFFFFF",
-    shadowColor: "#81638B",
+    keyboardColor: "#3D4878",
+    keyColor: "#BABCE2",
+    pressedColor: "#646d93",
+    textColor: "#000000",
+    shadowColor: "#646d93",
+    music: "music/audio6.mp3",
   },
 };
 

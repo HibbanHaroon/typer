@@ -61,3 +61,5 @@ Start the server
  - [Icons8](https://icons8.com/icons)
  - [Fraunces Font](https://fonts.google.com/specimen/Fraunces)
  - [React Tooltip](https://www.npmjs.com/package/react-tooltip)
+
+### Thanks to Ludwig Ahgren's playlist for a few music choices, and my dearest friend Sanie to help me edit the Key Sound.

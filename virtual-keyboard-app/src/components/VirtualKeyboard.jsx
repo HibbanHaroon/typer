@@ -8,16 +8,25 @@ import ArrowHeadUp from "../assets/icons/ArrowHeadUp";
 import ArrowHeadDown from "../assets/icons/ArrowHeadDown";
 import ArrowHeadLeft from "../assets/icons/ArrowHeadLeft";
 import ArrowHeadRight from "../assets/icons/ArrowHeadRight";
+import keySound from "../assets/sound/key.mp3";
 
 const VirtualKeyboard = () => {
   const [pressedKeys, setPressedKeys] = useState(new Set());
   const themes = React.useContext(ThemeContext);
   const currentTheme = themes[0];
 
+  const playKeySound = () => {
+    const audio = new Audio(keySound);
+    audio.play().catch((error) => {
+      console.error("Error playing key sound:", error);
+    });
+  };
+
   useEffect(() => {
     const handleKeyDown = (e) => {
       const key = e.key === " " ? "Space" : e.key;
       setPressedKeys((prevKeys) => new Set([...prevKeys, key]));
+      playKeySound();
     };
 
     const handleKeyUp = (e) => {

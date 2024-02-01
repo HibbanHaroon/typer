@@ -3,16 +3,7 @@ import ThemeContext from "../context/ThemeContext";
 import PropTypes from "prop-types";
 import "./Key.css";
 
-const Key = ({
-  texts,
-  icon,
-  width,
-  height,
-  iconWidth,
-  iconHeight,
-  isPressed,
-  onClick,
-}) => {
+const Key = ({ texts, icon, width, height, isPressed }) => {
   const themes = React.useContext(ThemeContext);
   const currentTheme = themes[0];
 
@@ -31,7 +22,7 @@ const Key = ({
   };
 
   return (
-    <button className="key" style={keyStyle} onClick={onClick}>
+    <button className="key" style={keyStyle}>
       {icon ? (
         <div className="key-icon">{icon}</div>
       ) : (
@@ -50,10 +41,7 @@ Key.propTypes = {
   icon: PropTypes.string,
   width: PropTypes.number.isRequired,
   height: PropTypes.number.isRequired,
-  iconWidth: PropTypes.number,
-  iconHeight: PropTypes.number,
   isPressed: PropTypes.bool.isRequired,
-  onClick: PropTypes.func,
 };
 
 export default Key;
